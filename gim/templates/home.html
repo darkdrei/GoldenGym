@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="es-ES">
+    <head>
+        <title>Sitio administrativo | Sitio de administración de Django</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="/static/material/imgs/favicon.png" rel="shortcut icon">
+      
+        
+<link href="/static/material/css/materialize.css" rel="stylesheet">
+<link href="/static/material/css/material-design-iconic-font.css" rel="stylesheet">
+<link href="/static/material/css/jquery.datetimepicker.css" rel="stylesheet">
+<link href="/static/material/css/responsive.dataTables.css" rel="stylesheet">
+<link href="/static/material/css/forms.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/static/material/admin/css/base.css" />
+{% block css%}{% endblock%}
+{% block cs%}{% endblock%}
+        
+
+        <script src="/static/material/js/jquery-2.2.0.js"></script>
+        <script>
+            // Use same django for material and django admin
+            var django = django || {};
+            django.jQuery = jQuery.noConflict(true);
+            window.jQuery = window.$ = django.jQuery
+        </script>
+        <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+        <script type="text/javascript">window.__admin_utc_offset__ = "\u002D18000";</script>
+        <script type="text/javascript" src="/admin/jsi18n/"></script>
+        
+        
+        <meta name="robots" content="NONE,NOARCHIVE" />
+    </head>
+
+    <body>
+        
+        <ul id="user-menu" class="dropdown-content">
+            
+            <li><a href="/admin/logout/">Terminar sesión</a></li>
+            
+            
+        </ul>
+        
+
+        
+        <header>
+            <nav id="header" class="nav-top green">
+                <div class="nav-wrapper">
+                    <a href="/" class="page-title hide-on-med-and-down">Administración</a>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse full"><i class="mdi-navigation-menu"></i></a>
+
+                    <ul class="right">
+                        
+                        <li><a class="dropdown-button constrain_width" href="#!" data-activates="user-menu">admin<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+                        
+                    </ul>
+                </div>
+
+                <ul id="nav-mobile" class="side-nav fixed module-menu">
+                    <li class="logo valign-wrapper">
+                        <a href="/admin/" class="no-navigation">
+                            <i class="mdi-action-settings-applications" style="font-size:80px"></i>
+                        </a>
+                    </li>
+
+                    
+                    <li class="no-padding"><a class="collapsible-header no-pjax" href="/"><i class="mdi-navigation-arrow-back"></i>Back to website</a></li>
+                    <li class="no-padding active">
+                        <div class="collapsible-body" style="display:block">
+                            <ul class="collapsible" data-collapsible="accordion">
+                                
+                                
+                                <li class="header">
+                                    <a class="collapsible-header"><i class="mdi-action-settings-applications"></i> Auth</a>
+                                    <div class="collapsible-body" >
+                                        <ul>
+                                            
+                                            <li class="">
+                                                <a href="/admin/auth/group/">Grupos</a>
+                                            </li>
+                                            
+                                            <li class="">
+                                                <a href="/admin/auth/user/">Usuarios</a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                                <li class="header">
+                                    <a class="collapsible-header"><i class="mdi-action-settings-applications"></i> Site Modules</a>
+                                    <div class="collapsible-body" >
+                                        <ul>
+                                            
+                                            <li class="">
+                                                <a href="/admin/frontend/module/">Modules</a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+        
+
+        <main>
+            
+            
+                        <div class="breadcrumbs">
+                            <div class="green darken-2 white-text">
+                                
+            <a href="/admin/">All apps</a>
+
+                            </div>
+                        </div>
+                        
+                        
+                        
+            <div class="row">
+                <div class="app-list">
+                    
+                    <div class="col s12 m6 l6 app">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title black-text">Autenticación y autorización</span>
+                                <div class="row">
+                                    
+                                    <div class="app-item col s6 m6 l4">
+                                        <a class="waves-effect waves-light green-text text-lighten-2" href="/admin/auth/group/">
+                                            <i class="zmdi zmdi-hc-4x adm-app-default adm-auth-group"></i>
+                                            <h6 style="truncate word-wrap: break-word;">Grupos</h6>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="app-item col s6 m6 l4">
+                                        <a class="waves-effect waves-light green-text text-lighten-2" href="/admin/auth/user/">
+                                            <i class="zmdi zmdi-hc-4x adm-app-default adm-auth-user"></i>
+                                            <h6 style="truncate word-wrap: break-word;">Usuarios</h6>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col s12 m6 l6 app">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title black-text">Site Modules</span>
+                                <div class="row">
+                                    
+                                    <div class="app-item col s6 m6 l4">
+                                        <a class="waves-effect waves-light green-text text-lighten-2" href="/admin/frontend/module/">
+                                            <i class="zmdi zmdi-hc-4x adm-app-default adm-frontend-module"></i>
+                                            <h6 style="truncate word-wrap: break-word;">Modules</h6>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+
+        
+<script src="/static/material/js/jquery.datetimepicker.js"></script>
+<script src="/static/material/js/jquery.formset.js"></script>
+<script src="/static/material/js/jquery.dataTables.min.js"></script>
+<script src="/static/material/js/dataTables.responsive.js"></script>
+<script src="/static/material/js/dataTables.fixedHeader.js"></script>
+<script src="/static/material/js/materialize.js"></script>
+<script src="/static/material/js/material_init.js"></script>
+
+        
+
+        
+        
+        
+    </body>
+</html>
