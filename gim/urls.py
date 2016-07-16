@@ -16,15 +16,9 @@ Including another URLconf
 from django.conf.urls import patterns,include, url
 from django.contrib import admin
 from django.conf import settings
-from material.frontend import urls as frontend_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('registro.urls'))
     #url(r'^registro/',include('registro.urls')),
-    url(r'', include(frontend_urls)),
 ]
-
-if settings.DEBUG:
-    urlpatterns += patterns('django.views.static',
-        (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
-    )
